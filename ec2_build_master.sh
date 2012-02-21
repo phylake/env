@@ -1,6 +1,6 @@
 yes | sudo apt-get update
 yes | sudo apt-get upgrade
-yes | sudo apt-get install make autoconf g++ git libtool uuid-dev libz-dev
+yes | sudo apt-get install make autoconf g++ git libtool uuid-dev libz-dev libssl-dev
 
 echo "gem: --no-rdoc --no-ri" > .gemrc
 
