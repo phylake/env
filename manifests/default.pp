@@ -25,16 +25,14 @@ class packages {
 }
 
 class cabal {
-  exec {'cabal update':
-    command => 'cabal update'
-  }
-
   exec { 'cabal_install':
     command => 'cabal_install',
-    require => Exec['cabal update'],
     path => '/vagrant'
   }
   
+  # exec {'cabal update':
+  #   command => 'cabal update'
+  # }
   # exec { 'vector':
   #   command => 'cabal install vector',
   #   require => Exec['cabal update'],
@@ -79,7 +77,7 @@ exec { 'sudo apt-get update':
 }
 
 Exec['sudo apt-get update'] -> Class['packages']
-Class['packages'] -> Class['cabal']
+# Class['packages'] -> Class['cabal']
 
 file { '/etc/motd':
   content => "motd\n"

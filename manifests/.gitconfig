@@ -1,0 +1,31 @@
+; create or overwrite ~/.gitconfig
+; with the contents of this file
+
+[user]
+	name = Brandon Cook
+	email = phylake@gmail.com
+[core]
+	whitespace = tabwidth=4
+[push]
+	; makes push more intuitive
+	default = tracking
+[log]
+	; show heads, tags, and remotes
+	decorate = full
+[alias]
+	s = status
+	sl = stash list
+	sp = stash pop
+	sb = show-branch
+	co = checkout
+
+	; submodules
+	sm = submodule
+	sms = submodule status --recursive
+	smu = submodule update --recursive
+
+	; gitk-like history
+	l = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+[gc]
+	; keep git clean
+	auto = 100
