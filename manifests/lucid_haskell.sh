@@ -1,3 +1,4 @@
+# haskell platform for 32-bit lucid
 sudo apt-get update
 
 yes | sudo apt-get install build-essential
