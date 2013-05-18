@@ -16,12 +16,6 @@ class packages {
   package { 'clang':
     ensure => installed
   }
-  package { 'haskell-platform':
-    ensure => installed
-  }
-  package { 'haskell-platform-prof':
-    ensure => installed
-  }
 }
 
 class cabal {
@@ -69,8 +63,10 @@ class cabal {
   #   user => vagrant
   # }
 }
+
 include packages
-include cabal
+include haskell
+include bash
 
 exec { 'sudo apt-get update':
   command => "apt-get update"
