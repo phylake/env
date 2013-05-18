@@ -1,79 +1,36 @@
 Exec { path => ['/usr/bin'] }
 
+@exec {'sudo apt-get update':
+  tag => update
+}
+# Exec <| tag == update |> -> Package <| |>
+Exec['sudo apt-get update'] -> Package <| |>
+
+
+@exec {'echo hello'}
+Package <| |> -> Exec['echo hello']
+
 class packages {
-  package { 'git':
-    ensure => installed
-  }
-  package { 'unzip':
-    ensure => installed
-  }
+  # package { 'git':
+  #   ensure => installed
+  # }
+  # package { 'unzip':
+  #   ensure => installed
+  # }
   package { 'curl':
     ensure => installed
   }
-  package { 'llvm':
-    ensure => installed
-  }
-  package { 'clang':
-    ensure => installed
-  }
-}
-
-class cabal {
-  exec { 'cabal_install':
-    command => 'cabal_install',
-    path => '/vagrant'
-  }
-  
-  # exec {'cabal update':
-  #   command => 'cabal update'
+  # package { 'llvm':
+  #   ensure => installed
   # }
-  # exec { 'vector':
-  #   command => 'cabal install vector',
-  #   require => Exec['cabal update'],
-  #   user => vagrant
-  # }
-  # exec { 'hashtables':
-  #   command => 'cabal install hashtables',
-  #   require => Exec['cabal update'],
-  #   user => vagrant
-  # }
-  # exec { 'conduit':
-  #   command => 'cabal install conduit',
-  #   require => Exec['cabal update'],
-  #   user => vagrant
-  # }
-  # exec { 'data-binary-ieee754':
-  #   command => 'cabal install data-binary-ieee754',
-  #   require => Exec['cabal update'],
-  #   user => vagrant
-  # }
-  # exec { 'json':
-  #   command => 'cabal install json',
-  #   require => Exec['cabal update'],
-  #   user => vagrant
-  # }
-  # exec { 'monadlib':
-  #   command => 'cabal install monadlib',
-  #   require => Exec['cabal update'],
-  #   user => vagrant
-  # }
-  # exec { 'enumerator':
-  #   command => 'cabal install enumerator',
-  #   require => Exec['cabal update'],
-  #   user => vagrant
+  # package { 'clang':
+  #   ensure => installed
   # }
 }
 
 include packages
-include haskell
-include bash
-
-exec { 'sudo apt-get update':
-  command => "apt-get update"
-}
-
-Exec['sudo apt-get update'] -> Class['packages']
-# Class['packages'] -> Class['cabal']
+# include haskell
+# include bash
 
 file { '/etc/motd':
   content => "motd\n"
