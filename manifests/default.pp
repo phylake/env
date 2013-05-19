@@ -3,12 +3,15 @@ Exec { path => ['/usr/bin'] }
 @exec {'sudo apt-get update':
   tag => update
 }
-# Exec <| tag == update |> -> Package <| |>
-Exec['sudo apt-get update'] -> Package <| |>
+Exec <| tag == update |> -> Package <| |>
 
+# exec {'sudo apt-get update':}
+# Exec['sudo apt-get update'] -> Package <| |>
 
-@exec {'echo hello'}
-Package <| |> -> Exec['echo hello']
+# @exec {'curl':
+#   tag => echo
+# }
+# Package <| |> -> Exec <| tag == echo |>
 
 class packages {
   # package { 'git':
@@ -29,8 +32,8 @@ class packages {
 }
 
 include packages
-# include haskell
-# include bash
+include haskell
+include bash
 
 file { '/etc/motd':
   content => "motd\n"
