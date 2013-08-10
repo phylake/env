@@ -4,14 +4,14 @@ class bash
     source => "puppet:///modules/bash/.gitconfig",
     owner => vagrant,
     group => vagrant,
-    mode => 0755
+    mode => 0644
   }
 
   file { '/home/vagrant/.bash_profile':
     source => "puppet:///modules/bash/.bash_profile",
     owner => vagrant,
     group => vagrant,
-    mode => 0755
+    mode => 0644
   }
 
   file { '/home/vagrant/cabal_install':

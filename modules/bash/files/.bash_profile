@@ -1,4 +1,6 @@
-source .bashrc
+[[ -e .bashrc ]] && source .bashrc
+
+[[ -d ~/.cabal/bin ]] && export PATH=~/.cabal/bin:$PATH
 
 # use $HOME's rvm even if a system rvm exists
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
