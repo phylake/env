@@ -20,6 +20,9 @@ class packages {
   package { 'unzip':
     ensure => installed
   }
+  package { 'vim':
+    ensure => installed
+  }
   package { 'curl':
     ensure => installed
   }
