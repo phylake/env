@@ -32,6 +32,10 @@ class packages {
   package { 'clang':
     ensure => installed
   }
+  # perf
+  package { 'linux-tools':
+    ensure => installed
+  }
 }
 
 include packages
