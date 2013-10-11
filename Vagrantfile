@@ -9,14 +9,14 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider :vmware_fusion do |vm, override|
     override.vm.box_url = "http://files.vagrantup.com/precise64_vmware.box"
-    vm.vmx["memsize"] = "1024"
-    vm.vmx["numvcpus"] = "4"
+    vm.vmx["memsize"] = "2048"
+    vm.vmx["numvcpus"] = "8"
   end
 
   config.vm.provider :virtualbox do |vm, override|
     override.vm.box_url = "http://files.vagrantup.com/precise64.box"
-    vm.customize ["modifyvm", :id, "--cpus", "4"]
-    vm.customize ["modifyvm", :id, "--memory", "1024"]
+    vm.customize ["modifyvm", :id, "--cpus", "8"]
+    vm.customize ["modifyvm", :id, "--memory", "2048"]
   end
 
   config.vm.provision :puppet do |puppet|

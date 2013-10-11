@@ -32,15 +32,12 @@ class packages {
   package { 'clang':
     ensure => installed
   }
-  # perf
-  package { 'linux-tools':
-    ensure => installed
-  }
 }
 
 include packages
-include haskell
+# include haskell
 include bash
+include perf
 
 file { '/etc/motd':
   content => "motd\n"
