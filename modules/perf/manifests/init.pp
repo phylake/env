@@ -5,6 +5,10 @@ class perf
     ensure => installed
   }
 
+  package { 'numactl':
+    ensure => installed
+  }
+
   # ulimits
   file { '/etc/security/limits.conf':
     source => "puppet:///modules/perf/limits.conf",

@@ -39,6 +39,6 @@ include packages
 include bash
 include perf
 
-file { '/etc/motd':
-  content => "motd\n"
-}
+# file { '/etc/motd':
+#   content => "motd\n"
+# }
