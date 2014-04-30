@@ -1,5 +1,5 @@
 TAG=<%= @ghc_version %>
-CORES=`cat /proc/cpuinfo | grep processor | wc -l`
+CORES=`grep processor /proc/cpuinfo | wc -l`
 
 git clone git://github.com/ghc/ghc.git ghc-src &&
 cd ghc-src &&
