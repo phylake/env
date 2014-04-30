@@ -1,0 +1,16 @@
+{
+  "chef": {
+    "chef_server_url": "https://api.opscode.com/organizations/phylake",
+    "validation_client_name": "phylake-validator",
+    "validation_key_path": ".chef/phylake-validator.pem",
+    "client_key": ".chef/phylake.pem",
+    "node_name": "phylake"
+  },
+  "vagrant": {
+    "vm": {
+      "box": "opscode-ubuntu-12.04-i386",
+      "box_url": "https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04-i386_provisionerless.box",
+      "provision": "chef_client"
+    }
+  }
+}
