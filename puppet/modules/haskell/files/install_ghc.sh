@@ -9,6 +9,6 @@ cd ghc &&
 ./sync-all --testsuite --no-dph get &&
 cp mk/build.mk.sample mk/build.mk &&
 perl boot &&
-./configure --prefix=/home/b/ghc/7.6.3 &&
+./configure --prefix=/home/b/ghc/7.8 &&
 make -j16 &&
 make install # no DESTDIR as it is for packaging not installing
