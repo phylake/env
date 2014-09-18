@@ -1,16 +1,15 @@
+alias ll="ls -alh"
+alias edit_network="sudo vim /etc/network/interfaces"
+alias restart_network="sudo /etc/init.d/networking restart"
+
 [[ -e .bashrc ]] && source .bashrc
 
-[[ -d ~/.cabal/bin ]] && export PATH=~/.cabal/bin:$PATH
+[[ -d ~/.cabal/bin ]] && PATH=~/.cabal/bin:$PATH
 
-[[ `which cabal` ]] && cabal update &> /dev/null &
+[[ -d ~/bin ]] && PATH=~/bin:$PATH
+
+[[ -d ~/ghc/7.8.2/bin ]] && PATH=~/ghc/7.8.2/bin:$PATH
 
 # use $HOME's rvm even if a system rvm exists
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# if there's still no rvm in the PATH assume it doesn't exist and install it
-[[ ! `which rvm` ]] && curl -L -s https://get.rvm.io | bash -s stable --autolibs=enabled --ruby=1.9.3
-
-[[ ! -e "$HOME/.ssh/id_rsa" && -e "/vagrant/id_rsa" ]] && mv /vagrant/id_rsa $HOME/.ssh/ && chmod 400 $HOME/.ssh/id_rsa
-[[ ! -e "$HOME/.ssh/id_rsa.pub" && -e "/vagrant/id_rsa.pub" ]] && mv /vagrant/id_rsa.pub $HOME/.ssh/
-
-[[ -e /vagrant ]] && cd /vagrant
