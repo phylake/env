@@ -6,6 +6,7 @@
 	email = phylake@gmail.com
 [core]
 	whitespace = tabwidth=4
+	editor = vim
 [push]
 	; makes push more intuitive
 	default = tracking
