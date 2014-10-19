@@ -23,7 +23,7 @@
 	; submodules
 	sm = submodule
 	sms = submodule status --recursive
-	smu = submodule update --recursive
+	smu = submodule update --init --recursive
 
 	; gitk-like history
 	l = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
