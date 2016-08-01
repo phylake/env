@@ -15,6 +15,8 @@
 	decorate = full
 [alias]
 	s = status
+	d = diff
+	ds = diff --staged
 	sl = stash list
 	sp = stash pop
 	sb = show-branch
@@ -30,3 +32,5 @@
 [gc]
 	; keep git clean
 	auto = 100
+[commit]
+	gpgSign = true
